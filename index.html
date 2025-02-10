@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Customers</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="icon" href="https://www.horustone.com/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+
+<body class="text-gray-900">
+    <!-- Header Section -->
+    <header class="bg-[#181818] px-1 text-white text-center text-xl font-bold flex">
+        <!-- Home Link -->
+        <p class="font-normal max-w-[170px] flex gap-4 p-4 border-r border-[#202020] justify-center">
+            <img src="/assets/home-2.svg" alt="home icon"> Match
+        </p>
+        <!-- Profile Link -->
+        <p class="font-normal flex flex-1 gap-4 p-4 px-8 border-r border-[#202020] justify-end">
+            <img class="w-6 h-6" src="/assets/avatar.png" alt="avatar">
+            Profile
+            <img src="/assets/notification.svg" alt="notification icon">
+        </p>
+        <!-- Icons Section -->
+        <div class="flex gap-5 p-4 justify-center w-40">
+            <img src="/assets/minus.svg" alt="minus icon" class="w-4">
+            <img src="/assets/copy.svg" alt="copy icon" class="w-4">
+            <img src="/assets/close.svg" alt="close icon" class=" w-4">
+        </div>
+    </header>
+    <!-- Main Content Section -->
+    <div class="flex h-screen p-6">
+        <!-- Sidebar Section -->
+        <aside class="bg-[#181818] w-64 rounded-lg p-4">
+            <div class="flex pb-3 gap-3">
+
+                <!-- Add Customer Button -->
+                <button id="addCustomer"
+                    class="ripple w-full bg-[#B4891C] text-white p-2 px-3 max-w-fit flex gap-2 items-center rounded shadow hover:opacity-80 relative overflow-hidden focus:outline-none relative">
+                    <img src="/assets/add-square.svg" alt=""> Customer
+                </button>
+
+
+                <!-- Dialog Form -->
+                <dialog class="min-w-full" id="customerDialog">
+                    <form id="customerForm" method="dialog"
+                        class="bg-[#2C2C2C] p-6 rounded-lg shadow-lg  w-full space-y-6 text-white">
+                        <h2 class="text-xl font-semibold">New Customer</h2>
+
+                        <!-- Customer Information -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                            <div>
+                                <label class="block ">Customer name</label>
+                                <input type="text" id="customerName" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Customer name" required>
+                            </div>
+                            <div>
+                                <label class="block ">Sale location</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Quote 1">
+                            </div>
+                            <div>
+                                <label class="block ">Sale person</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>Countertops</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block ">Status</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>Working</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block ">Address</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Street name">
+                            </div>
+                            <div>
+                                <label class="block ">Address 2</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Street name">
+                            </div>
+                            <div>
+                                <label class="block ">Zip Code</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Street name">
+                            </div>
+                            <div>
+                                <label class="block ">Country</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>United States</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block ">State</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>United States</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block ">City</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>United States</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block ">Phone</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="+00 0000 0000">
+                            </div>
+                            <div>
+                                <label class="block ">Email</label>
+                                <input type="email" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="email@email.com">
+                            </div>
+                            <div>
+                                <label class="block ">Website</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="website.com">
+                            </div>
+                        </div>
+
+                        <!-- Financial Information -->
+                        <h3 class="text-lg font-semibold mt-4">Financial Information</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+
+                            <label class="flex items-center cursor-pointer">
+                                <span class=" mr-2">Tax applicable</span>
+                                <div class="relative">
+                                    <input type="checkbox" class="sr-only peer ripple">
+                                    <div
+                                        class="w-12 h-6 bg-gray-700 rounded-full peer-checked:bg-[#B4891C] transition-colors">
+                                    </div>
+                                    <div
+                                        class="absolute left-1 top-0 w-6 h-6 bg-white rounded-full transition-transform peer-checked:translate-x-5">
+                                    </div>
+                                </div>
+                            </label>
+                            <div>
+                                <label class="block ">Tax number</label>
+                                <input type="text" class="w-full p-2 border border-gray-700 rounded"
+                                    placeholder="Street name">
+                            </div>
+                            <div>
+                                <label class="block ">Total tax</label>
+                                <input type="number" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Number">
+                            </div>
+                            <div>
+                                <label class="block ">Discount</label>
+                                <input type="number" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Number">
+                            </div>
+                            <div>
+                                <label class="block ">Price</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>Price 1</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block ">Currency</label>
+                                <select class="w-full p-2  border border-gray-700 rounded">
+                                    <option>Dollar</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Responsible Person -->
+                        <h3 class="text-lg font-semibold mt-4">Responsible Person</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div>
+                                <label class="block ">Name</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Responsible">
+                            </div>
+                            <div>
+                                <label class="block ">Phone</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="+00 0000 0000">
+                            </div>
+                            <div>
+                                <label class="block ">Email</label>
+                                <input type="email" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="email@email.com">
+                            </div>
+                            <div>
+                                <label class="block ">Note</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded">
+                            </div>
+                        </div>
+
+                        <!-- Website & Credentials -->
+                        <h3 class="text-lg font-semibold mt-4">Website</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="flex items-center gap-2">
+                                <label class="flex items-center cursor-pointer">
+                                    <span class=" mr-2">Activate</span>
+                                    <div class="relative">
+                                        <input type="checkbox" class="sr-only peer">
+                                        <div
+                                            class="w-12 h-6 bg-gray-700 rounded-full peer-checked:bg-[#B4891C] transition-colors">
+                                        </div>
+                                        <div
+                                            class="absolute left-1 top-0 w-6 h-6 bg-white rounded-full transition-transform peer-checked:translate-x-5">
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div>
+                                <label class="block ">Username</label>
+                                <input type="text" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="Username">
+                            </div>
+                            <div>
+                                <label class="block ">Password</label>
+                                <input type="password" class="w-full p-2  border border-gray-700 rounded"
+                                    placeholder="******">
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="flex justify-end gap-4 mt-4">
+                            <button type="button" id="closeDialog"
+                                class=" text-white px-4 py-2 rounded hover:bg-gray-400 transition">Cancel</button>
+                            <button type="submit"
+                                class="ripple text-white px-4 py-2 rounded hover:bg-yellow-400">Save</button>
+                        </div>
+                    </form>
+                </dialog>
+
+            </div>
+            <ul class="customer-list space-y-2"></ul>
+        </aside>
+        <main class="flex-1 gap-4 mx-4 rounded">
+
+            <!-- Search Section -->
+            <div class="flex items-center bg-[#181818] p-2 gap-2 rounded-lg w-full">
+
+                <div class="relative">
+                    <select class="text-white px-4 py-2 rounded-lg flex items-center">
+                        <option>Customer Name</option>
+                        <option>Customer</option>
+
+                    </select>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex items-center rounded-lg flex-grow relative">
+                    <img class="absolute left-[28%]" src="/assets/search-normal.png" alt="Search">
+                    <input type="text" placeholder="Search by Project name or ID"
+                        class="text-center p-4 outline-none w-full rounded-lg">
+                </div>
+
+                <!-- Filters Button -->
+                <button class=" text-white px-4 py-2 rounded-lg flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2a1 1 0 01-.293.707L13 14.414V20a1 1 0 01-1.447.894l-4-2A1 1 0 017 18v-3.586L3.293 6.707A1 1 0 013 6V4z">
+                        </path>
+                    </svg>
+                    Filters
+                </button>
+
+                <!-- Project Button -->
+                <button class=" text-white px-4 py-2 rounded-lg flex items-center">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                    </svg>
+                    Project
+                </button>
+
+                <!-- Group Button -->
+                <button class=" text-white px-4 py-2 rounded-lg flex items-center">
+
+                    Group
+                </button>
+            </div>
+
+            <h3 class="bg-[#181818] my-2 p-4 text-lg font-semibold text-white rounded-lg flex flex-col">
+                <span class="text-xs font-normal ">Customer name</span>
+                Company’s name
+            </h3>
+
+            <ul id="accordion" class="projects space-y-2 relative pl-0 ml-10">
+
+            </ul>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
