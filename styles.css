@@ -10,15 +10,16 @@ body {
 }
 
 input, textarea, select, input[type="text"] {
-background-color: #202020;
+background-color: #202020 !important;
 border: #202020;
 height: 48px;
+color: #F9F9FB !important; 
 }
 
 input::placeholder, textarea::placeholder, select::placeholder {
   
   opacity: 1;
-  color: #F9F9FB; 
+  color: #F9F9FB !important; 
 }
 
 label {

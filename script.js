@@ -128,7 +128,7 @@ $(document).ready(function () {
     $('.projects').empty();
     projects.forEach((project) => {
       $('.projects').append(
-        `<li class="bg-[#181818] text-white rounded-lg  shadow cursor-pointer">
+        `<li class="bg-[#181818] text-white rounded-lg hover:bg-[#272727]  shadow cursor-pointer">
         <h3 class="p-4">${project}</h3>
      <div class="p-4">
                   <p>Cras dictum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia mauris vel est. </p><p>Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. </p>
